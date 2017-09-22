@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Kdv_Insurance>
+            <version>1.0.0</version>
+        </Kdv_Insurance>
+    </modules>
+    <global>
+        <resources>
+            <insurance_setup>
+                <setup>
+                    <module>Kdv_Insurance</module>
+                </setup>
+            </insurance_setup>
+        </resources>
+        <blocks>
+            <insurance>
+                <class>Kdv_Insurance_Block</class>
+            </insurance>
+        </blocks>
+        <!-- Тут будут модели, блоки, хелперы, реврайты, глобальные обсерверы -->
+    </global>
+    <frontend>
+        <!-- Все касательно frontend части магазина: роуты, макеты, переводы, обсерверы -->
+    </frontend>
+    <admin>
+        <!-- Все касательно admin части магазина: роуты, макеты, переводы-->
+    </admin>
+    <defalut>
+        <!-- Все касательно admin части магазина:  макеты, переводы, обсерверы -->
+    </defalut>
+</config>
