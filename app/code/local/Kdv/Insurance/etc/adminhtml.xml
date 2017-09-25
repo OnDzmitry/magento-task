@@ -1,22 +1,25 @@
 <?xml version="1.0"?>
 <config>
-    <acl>
-        <resources>
-            <admin>
-                <children>
-                    <system>
-                        <children>
-                            <config>
-                                <children>
-                                    <carriers_settings>
-                                        <title>Insurance settings</title>
-                                    </carriers_settings>
-                                </children>
-                            </config>
-                        </children>
-                    </system>
-                </children>
-            </admin>
-        </resources>
-    </acl>
+<acl>
+    <resources>
+        <admin>
+            <children>
+                <system>
+                    <children>
+                        <config>
+                            <children>
+                                <insurance_settings>
+                                    <title>Insurance</title>
+                                </insurance_settings>
+                                <insurance_carriers>
+                                    <title>Insurance of carriers</title>
+                                </insurance_carriers>
+                            </children>
+                        </config>
+                    </children>
+                </system>
+            </children>
+        </admin>
+    </resources>
+</acl>
 </config>

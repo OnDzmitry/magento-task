@@ -6,6 +6,11 @@
         </Kdv_Insurance>
     </modules>
     <global>
+        <models>
+            <insurance>
+                <class>Kdv_Insurance_Model</class>
+            </insurance>
+        </models>
         <resources>
             <insurance_setup>
                 <setup>
@@ -18,6 +23,17 @@
                 <class>Kdv_Insurance_Block</class>
             </insurance>
         </blocks>
+        <events>
+            <admin_system_config_changed_section_insurance_carriers>
+                <observers>
+                    <insurance>
+                        <type>model</type>
+                        <class>insurance/observer</class>
+                        <method>saveCarriersAction</method>
+                    </insurance>
+                </observers>
+            </admin_system_config_changed_section_insurance_carriers>
+        </events>
         <!-- Тут будут модели, блоки, хелперы, реврайты, глобальные обсерверы -->
     </global>
     <frontend>
