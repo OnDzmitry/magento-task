@@ -23,6 +23,11 @@
                 <class>Kdv_Insurance_Block</class>
             </insurance>
         </blocks>
+        <helpers>
+            <insurance>
+                <class>Kdv_Insurance_Helper</class>
+            </insurance>
+        </helpers>
         <events>
             <admin_system_config_changed_section_insurance_carriers>
                 <observers>
@@ -37,6 +42,13 @@
         <!-- Тут будут модели, блоки, хелперы, реврайты, глобальные обсерверы -->
     </global>
     <frontend>
+        <layout>
+            <updates>
+                <insurance>
+                    <file>insurance.xml</file>
+                </insurance>
+            </updates>
+        </layout>
         <!-- Все касательно frontend части магазина: роуты, макеты, переводы, обсерверы -->
     </frontend>
     <admin>

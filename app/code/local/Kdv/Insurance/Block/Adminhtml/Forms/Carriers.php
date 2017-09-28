@@ -10,7 +10,9 @@ class Kdv_Insurance_Block_Adminhtml_Forms_Carriers extends Mage_Adminhtml_Block_
 {
     public function _prepareForm()
     {
+        $carriersPath = Mage::helper('insurance')->getConfigInsurancePath();
         $activeCarriers = Mage::getSingleton('shipping/config')->getActiveCarriers();
+        $config = Mage::getConfig();
 
         $form = new Varien_Data_Form(array(
                 'id' => 'edit_form',
@@ -19,7 +21,7 @@ class Kdv_Insurance_Block_Adminhtml_Forms_Carriers extends Mage_Adminhtml_Block_
                 'enctype' => 'multipart/form-data'
             )
         );
-        $form->setUseContainer(true);
+
         foreach ($activeCarriers as $carrier => $model) {
             $fieldset = $form->addFieldset($carrier, [
                 'legend' => Mage::getStoreConfig('carriers/' . $carrier . '/title')
@@ -28,21 +30,20 @@ class Kdv_Insurance_Block_Adminhtml_Forms_Carriers extends Mage_Adminhtml_Block_
                 'name' => 'insurance[' . $carrier . '][enable]',
                 'label' => 'Insurance enable',
                 'values' => Mage::getModel('adminhtml/system_config_source_yesno')->toArray(),
-                'value' => 0,
+                'value' => $config->getStoresConfigByPath($carriersPath . $carrier . '/enabled'),
             ]);
             $fieldset->addField($carrier . '_mode', 'select', [
                 'name' => 'insurance[' . $carrier . '][type]',
                 'label' => 'Type',
                 'values' => Mage::getModel('insurance/config_source_absolutepercent')->toArray(),
-                'value' => 0,
+                'value' => $config->getStoresConfigByPath($carriersPath . $carrier . '/type'),
             ]);
             $fieldset->addField($carrier . '_rate', 'text', [
                 'name' => 'insurance[' . $carrier . '][cost]',
-                'label' => 'Absolute cost',
-                'value' => 0,
+                'label' => 'Amount',
+                'value' => array_shift($config->getStoresConfigByPath($carriersPath . $carrier . '/amount')),
             ]);
         }
         $this->setForm($form);
-        return $form->toHtml();
     }
 }

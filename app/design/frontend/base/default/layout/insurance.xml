@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <checkout_onepage_shippingmethod>
+        <reference name="root">
+            <block type="insurance/checkout_carriers" name="checkbox" output="toHtml" template="insurance/checkout/checkbox.phtml"/>
+        </reference>
+    </checkout_onepage_shippingmethod>
+</layout>

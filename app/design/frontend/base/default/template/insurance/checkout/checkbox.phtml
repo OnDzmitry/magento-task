@@ -1,0 +1,32 @@
+<div class="carriers-insurance" style="display: none">   <dl class="sp-methods-s">
+        <dt>Insurance</dt>
+        <dd>
+            <ul>
+                <li>
+                    <input name="" type="checkbox" value="" id="insurance-enable" class="radio">
+                    <label>Enabled</label>
+                </li>
+            </ul>
+        </dd>
+        <dt>Amount</dt>
+        <h2 class="insurance-amount"></h2>
+    </dl>
+</div>
+<script type="text/javascript">
+    let insuranceCarriers = JSON.parse('<?php echo $this->getAvailableCarriersJSON()?>');
+    $$('input[type="radio"][name="shipping_method"]').each((el) => {
+        Event.observe(el, 'change', function () {
+            if (el.checked == true) {
+                let shippingCode = el.getValue();
+                let carrier = shippingCode.split('_').shift();
+                console.log(insuranceCarriers[carrier]['amount']);
+                if (insuranceCarriers[carrier]['enable'] !== 0) {
+                    $$('.carriers-insurance')[0].show();
+                    $$('.insurance-amount')[0].innerText = insuranceCarriers[carrier]['amount'];
+                } else {
+                    $$('.carriers-insurance')[0].hide();
+                }
+            }
+        });
+    });
+</script>
