@@ -3,13 +3,13 @@
         <dd>
             <ul>
                 <li>
-                    <input name="" type="checkbox" value="" id="insurance-enable" class="radio">
+                    <input name="insurance-enable" type="checkbox" value="1" checked id="insurance-enable" class="radio">
                     <label>Enabled</label>
                 </li>
             </ul>
         </dd>
         <dt>Amount</dt>
-        <h2 class="insurance-amount"></h2>
+        <label class="insurance-amount" for="insurance" value="200"></>
     </dl>
 </div>
 <script type="text/javascript">
@@ -29,4 +29,8 @@
             }
         });
     });
+        Event.observe('input[type="checkbox"][name="insurance-enable"]', 'change', function () {
+            this.value = (Number(this.checked));
+        });
+
 </script>
