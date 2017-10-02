@@ -10,7 +10,7 @@ class Kdv_Insurance_Helper_Data extends Mage_Core_Helper_Abstract
     public function getInsurancePrice($carrier)
     {
         $insurancePrice = null;
-        $carriersPath = 'insurance/carriers/';
+        $carriersPath = $this->getConfigInsurancePath();
         $config = Mage::getConfig();
         $amount = array_shift($config->getStoresConfigByPath($carriersPath . $carrier . '/amount'));
         $type = array_shift($config->getStoresConfigByPath($carriersPath . $carrier . '/type'));
